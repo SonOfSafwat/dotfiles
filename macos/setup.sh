@@ -1,8 +1,8 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # Taken from:
 # ~/.macos — https://mths.be/macos
-# Amended to work for my personal preferences
+
 
 DIR=$(dirname "$0")
 cd "$DIR"
@@ -21,16 +21,15 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Set computer name
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "rmbp"
-sudo scutil --set HostName "rmbp"
-sudo scutil --set LocalHostName "rmbp"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "rmbp"
+sudo scutil --set ComputerName "abdelrhman"
+sudo scutil --set HostName "abdelrhman"
+sudo scutil --set LocalHostName "abdelrhman"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "abdelrhman"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -45,7 +44,7 @@ sudo nvram SystemAudioVolume=" "
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 # Always show scrollbars
-# defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 # Disable the over-the-top focus ring animation
@@ -86,10 +85,10 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
 # Disable automatic termination of inactive apps
-defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool false
 
 # Disable the crash reporter
-defaults write com.apple.CrashReporter DialogType -string "none"
+# defaults write com.apple.CrashReporter DialogType -string "none"
 
 # Set Help Viewer windows to non-floating mode
 defaults write com.apple.helpviewer DevMode -bool true
@@ -107,19 +106,19 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
 # Disable automatic capitalization as it’s annoying when typing code
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+# defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
 # Disable smart dashes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+# defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Disable automatic period substitution as it’s annoying when typing code
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+# defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
 # Disable smart quotes as they’re annoying when typing code
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+# defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+# defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
 # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
@@ -130,9 +129,6 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
-
-# Trackpad: enable three finger drag
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
 
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -161,7 +157,7 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # Follow the keyboard focus while zoomed in
 # defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
-# Enable press-and-hold for keys instead of key repeat
+# Enable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
 
 # Set a blazingly fast keyboard repeat rate
@@ -171,8 +167,8 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "nl" "tr"
-defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
+defaults write NSGlobalDomain AppleLanguages -array "en" "ar"
+defaults write NSGlobalDomain AppleLocale -string "en_AE@currency=AED"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
@@ -180,7 +176,7 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Europe/Amsterdam" > /dev/null
+sudo systemsetup -settimezone "Asia/Dubai" > /dev/null
 
 # Stop iTunes from responding to the keyboard media keys
 launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
@@ -205,7 +201,7 @@ sudo systemsetup -setrestartfreeze on
 # sudo pmset -c sleep 0
 
 # Set machine sleep to 5 minutes on battery
-# sudo pmset -b sleep 5
+sudo pmset -b sleep 5
 
 # Set standby delay to 24 hours (default is 1 hour)
 # sudo pmset -a standbydelay 86400
@@ -234,8 +230,8 @@ sudo pmset -a hibernatemode 0
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Save screenshots to Google Drive
-defaults write com.apple.screencapture location -string "${HOME}/Google Drive/screenshots"
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
@@ -266,10 +262,10 @@ defaults write com.apple.finder DisableAllAnimations -bool true
 # defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
 # Show icons for hard drives, servers, and removable media on the desktop
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+# defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+# defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+# defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+# defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
@@ -311,9 +307,9 @@ defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
 # Automatically open a new Finder window when a volume is mounted
-defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
-defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
-defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
+# defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+# defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+# defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
 # Show item info near icons on the desktop and in other icon views
 # /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
@@ -338,9 +334,9 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 # /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
 # /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
 
-# Use column view in all Finder windows by default
-# Four-letter codes for the other view modes: `icnv`, `Nlsv`, `glyv`
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+# Use list view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
@@ -355,8 +351,8 @@ chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 sudo chflags nohidden /Volumes
 
 # Remove Dropbox’s green checkmark icons in Finder
-file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
-[ -e "${file}" ] && mv -f "${file}" "${file}.bak"
+# file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
+# [ -e "${file}" ] && mv -f "${file}" "${file}.bak"
 
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
@@ -372,14 +368,14 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Enable highlight hover effect for the grid view of a stack (Dock)
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
-# Set the icon size of Dock items to 64 pixels
-defaults write com.apple.dock tilesize -int 64
+# Set the icon size of Dock items to 36 pixels
+defaults write com.apple.dock tilesize -int 36
 
-# Change minimize/maximize window effect - genie, suck or scale
+# Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "genie"
 
-# Don't inimize windows into their application’s icon
-defaults write com.apple.dock minimize-to-application -bool false
+# Minimize windows into their application’s icon
+defaults write com.apple.dock minimize-to-application -bool true
 
 # Enable spring loading for all Dock items
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
@@ -390,19 +386,20 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Wipe all (default) app icons from the Dock
 # This is only really useful when setting up a new Mac, or if you don’t use
 # the Dock to launch apps.
-defaults write com.apple.dock persistent-apps -array
+#defaults write com.apple.dock persistent-apps -array
 
 # Show only open applications in the Dock
 #defaults write com.apple.dock static-only -bool true
 
-# Animate opening applications from the Dock
-defaults write com.apple.dock launchanim -bool true
+# Don’t animate opening applications from the Dock
+# defaults write com.apple.dock launchanim -bool false
 
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.2
 
-# Group windows by application in Mission Control
-defaults write com.apple.dock expose-group-by-app -bool true
+# Don’t group windows by application in Mission Control
+# (i.e. use the old Exposé behavior instead)
+defaults write com.apple.dock expose-group-by-app -bool false
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
@@ -455,18 +452,15 @@ defaults write com.apple.dock show-recents -bool false
 # 11: Launchpad
 # 12: Notification Center
 # 13: Lock Screen
-# Top left screen corner → No op
-defaults write com.apple.dock wvous-tl-corner   -int 0
-defaults write com.apple.dock wvous-tl-modifier -int 0
-# Top right screen corner → No op
-defaults write com.apple.dock wvous-tr-corner   -int 0
-defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → No op
-defaults write com.apple.dock wvous-bl-corner   -int 0
-defaults write com.apple.dock wvous-bl-modifier -int 0
-# Bottom right screen corner → No op
-defaults write com.apple.dock wvous-br-corner   -int 0
-defaults write com.apple.dock wvous-br-modifier -int 0
+# Top left screen corner → Mission Control
+# defaults write com.apple.dock wvous-tl-corner -int 2
+# defaults write com.apple.dock wvous-tl-modifier -int 0
+# Top right screen corner → Desktop
+# defaults write com.apple.dock wvous-tr-corner -int 4
+# defaults write com.apple.dock wvous-tr-modifier -int 0
+# Bottom left screen corner → Start screen saver
+# defaults write com.apple.dock wvous-bl-corner -int 5
+# defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -684,34 +678,32 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
-# Transmission.app                                                            #
+# Twitter.app                                                                 #
 ###############################################################################
-# Use `~/Downloads` to store completed downloads
-defaults write org.m0k.transmission DownloadLocationConstant -bool true
 
-# Don’t prompt for confirmation before downloading
-defaults write org.m0k.transmission DownloadAsk -bool false
-defaults write org.m0k.transmission MagnetOpenAsk -bool false
+# Disable smart quotes as it’s annoying for code tweets
+#defaults write com.twitter.twitter-mac AutomaticQuoteSubstitutionEnabled -bool false
 
-# Don’t prompt for confirmation before removing non-downloading active transfers
-defaults write org.m0k.transmission CheckRemoveDownloading -bool true
+# Show the app window when clicking the menu bar icon
+defaults write com.twitter.twitter-mac MenuItemBehavior -int 1
 
-# Trash original torrent files
-defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
+# Enable the hidden ‘Develop’ menu
+defaults write com.twitter.twitter-mac ShowDevelopMenu -bool true
 
-# Hide the donate message
-defaults write org.m0k.transmission WarningDonate -bool false
-# Hide the legal disclaimer
-defaults write org.m0k.transmission WarningLegal -bool false
+# Open links in the background
+defaults write com.twitter.twitter-mac openLinksInBackground -bool true
+# Allow closing the ‘new tweet’ window by pressing `Esc`
+defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
+# Show full names rather than Twitter handles
+defaults write com.twitter.twitter-mac ShowFullNames -bool true
+# Hide the app in the background if it’s not the front-most window
+defaults write com.twitter.twitter-mac HideInBackground -bool true
+###############################################################################
+# Tweetbot.app                                                                #
+###############################################################################
 
-# IP block list.
-# Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
-defaults write org.m0k.transmission BlocklistNew -bool true
-defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
-defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
-
-# Randomize port on launch
-defaults write org.m0k.transmission RandomPort -bool true
+# Bypass the annoyingly slow t.co URL shortener
+defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 ###############################################################################
 # Kill affected applications                                                  #
@@ -730,8 +722,9 @@ for app in "Activity Monitor" \
 	"Safari" \
 	"SystemUIServer" \
 	"Terminal" \
-	"Transmission"; do
+	"Tweetbot" \
+	"Twitter" \
+	"iCal"; do
 	killall "${app}" &> /dev/null
 done
-
-success "FInished setting macOS defaults. Note that some of these changes require a logout/restart to take effect."
+echo "FInished setting macOS defaults. Note that some of these changes require a logout/restart to take effect."

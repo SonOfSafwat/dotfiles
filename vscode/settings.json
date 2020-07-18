@@ -1,83 +1,131 @@
-// Place your settings in this file to overwrite the default settings
 {
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "One Monokai",
+	"editor.fontFamily": "'MesloLGS NF', 'SourceCodePro+Powerline+Awesome Regular',Source Code Pro for Powerline",
+	"terminal.integrated.shell.osx": "/bin/zsh",
+	"workbench.startupEditor": "welcomePage",
+	"window.zoomLevel": 0,
+	"explorer.confirmDelete": false,
+	"editor.suggestSelection": "first",
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"html.format.wrapLineLength": 0,
+	"html.format.wrapAttributes": "force-aligned",
+	"typescriptHero.imports.organizeOnSave": true,
+	//john papa recommends
+	"editor.autoIndent": "full",
+	"editor.codeActionsOnSave": {
+		// "source.organizeImports": true
+	},
+	"editor.codeLens": true,
+	"editor.cursorBlinking": "solid",
+	"editor.cursorSmoothCaretAnimation": true,
+	"editor.cursorStyle": "line",
 
-    "editor.rulers": [79],
-    "editor.roundedSelection": false,
-    "editor.minimap.enabled": true,
-    "editor.minimap.renderCharacters": false,
-    "editor.minimap.maxColumn": 100,
-    "editor.renderWhitespace": "boundary",
-    "editor.renderIndentGuides": true,
-    "editor.suggestSelection": "first",
-    // "editor.fontWeight": "600",
+	"editor.fontLigatures": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": false,
 
-    "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true,
-    "window.zoomLevel": 0,
+	"editor.renderWhitespace": "all",
+	"editor.tabCompletion": "on",
+	"editor.tabSize": 2,
+	"editor.wordWrap": "off",
 
-    "python.linting.pylintEnabled": true,
-    "python.linting.pycodestyleEnabled": false,
-    "python.pythonPath": "/usr/local/bin/python3",
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"**/*.js": {
+			"when": "$(basename).ts"
+		},
+		"**/*.js.map": {
+			"when": "$(basename)"
+		}
+	},
+	"files.hotExit": "onExit",
+	"files.trimTrailingWhitespace": true,
 
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "vue"
-    ],
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.showUnused": true
+	},
 
-    "[typescript]": {
-        "editor.tabSize": 2
-    },
+	"workbench.editor.highlightModifiedTabs": true,
+	"files.trimFinalNewlines": true,
+	"diffEditor.renderSideBySide": true,
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"workbench.iconTheme": "material-icon-theme",
+	"files.autoGuessEncoding": true,
+	"files.simpleDialog.enable": false,
+	"workbench.enableExperiments": false,
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 
-    "[javascript]": {
-        "editor.tabSize": 2
-    },
+	"window.openFoldersInNewWindow": "on",
+	"window.openWithoutArgumentsInNewWindow": "off",
+	"window.closeWhenEmpty": true,
+	"window.newWindowDimensions": "maximized",
+	"window.openFilesInNewWindow": "off",
+	"terminal.integrated.shell.windows": "cmd.exe",
 
-    "[tsx]": {
-        "editor.tabSize": 2
-    },
+	"terminal.integrated.env.windows": {
+		"CMDER_ROOT": "D:\\Cmder"
+	},
+	"terminal.integrated.shellArgs.windows": [
+		"/k",
+		"%CMDER_ROOT%\\vendor\\bin\\vscode_init.cmd"
+	],
+	"scm.defaultViewMode": "tree",
+	"scm.alwaysShowActions": true,
+	"editor.renderControlCharacters": true,
+	"ngschematics.schematics": ["@angular/material"],
 
-    "[jsx]": {
-        "editor.tabSize": 2
-    },
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"javascript.preferences.quoteStyle": "single",
+	"typescript.preferences.quoteStyle": "single",
 
-    "[html]": {
-        "editor.tabSize": 2
-    },
-
-    "[css]": {
-        "editor.tabSize": 2
-    },
-
-    "[lua]": {
-        "editor.tabSize": 2
-    },
-
-    "Lua.diagnostics.disable": ["undefined-global"],
-
-    "git.autofetch": true,
-    "terminal.integrated.rendererType": "dom",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "gitlens.advanced.messages": {
-        "suppressShowKeyBindingsNotice": true
-    },
-    "gitlens.keymap": "alternate",
-    "clang.cxxflags": ["-std=c++11"],
-    "workbench.settings.editor": "json",
-    "workbench.settings.useSplitJSON": true,
-    "files.associations": {
-        "*.cash": "solidity"
-    },
-    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "git.confirmSync": false,
-
-    "solidity.packageDefaultDependenciesContractsDirectory": "",
-    "solidity.packageDefaultDependenciesDirectory": "node_modules",
-    "solidity.compileUsingRemoteVersion": "latest"
+	"telemetry.enableTelemetry": false,
+	"telemetry.enableCrashReporter": false,
+	"editor.multiCursorModifier": "ctrlCmd",
+	"workbench.editor.enablePreview": false,
+	"explorer.compactFolders": false,
+	"diffEditor.ignoreTrimWhitespace": false,
+	"html.format.indentInnerHtml": true,
+	"prettier.useTabs": true,
+	"prettier.singleQuote": true,
+	"team.showWelcomeMessage": false,
+	"eslint.alwaysShowStatus": true,
+	"eslint.format.enable": true,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.renameOnType": true,
+	"explorer.confirmDragAndDrop": false,
+	"editor.minimap.enabled": false,
+	"remote.downloadExtensionsLocally": true,
+	"workbench.colorTheme": "Monokai",
+	"notebook.displayOrder": [],
+	"autoimport.showNotifications": true,
+	"better-comments.highlightPlainText": true,
+	"cSpell.allowCompoundWords": true,
+	"css.lint.duplicateProperties": "error",
+	"css.lint.emptyRules": "error",
+	"css.lint.float": "error",
+	"css.lint.idSelector": "error",
+	"css.lint.important": "error",
+	"css.lint.ieHack": "error",
+	"debug.chrome.useV3": true,
+	"errorLens.addAnnotationTextPrefixes": true,
+	"errorLens.gutterIconsEnabled": true,
+	"eslint.lintTask.enable": true,
+	"i18n-ally.editor.preferEditor": true,
+	"kite.showWelcomeNotificationOnStartup": false
 }

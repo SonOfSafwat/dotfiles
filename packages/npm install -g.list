@@ -1,6 +1,4 @@
 npm
-ethereum-bridge
-ganache-cli
 ghost-cli
 lerna
 love.js
@@ -8,3 +6,4 @@ truffle
 ts-node
 typescript
 yarn
+@angular/cli
