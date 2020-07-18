@@ -2,7 +2,7 @@
 tap 'homebrew/cask-versions'
 tap 'buo/cask-upgrade'
 tap 'Schniz/tap'
-
+tap 'nvie/tap'
 
 cask 'alfred'
 cask 'bartender'
@@ -90,6 +90,7 @@ brew 'yarn'
 brew 'z'
 brew 'zsh'
 brew 'zsh-syntax-highlighting'
+brew 'nvie/tap/git-toolbelt'
 # Install `wget` with IRI support.
 brew 'wget --with-iri'
 
