@@ -41,10 +41,6 @@ If you would like to use these dotfiles for yourself, I'd recommend changing at 
 
 This folder is a collection of the programs and utilities I use frequently. These lists can easily be amended to your liking.
 
-### Repos
-
-This folder is a collection of my own repos, some of which are even private. The existing lists can easily be edited or replaced by custom lists.
-
 ## Contents
 
 ### Root (/)
