@@ -49,7 +49,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
- ENABLE_CORRECTION="true"
+ ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -75,7 +75,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx rand-quote themes command-not-found nvm npm npx chucknorris common-aliases git-prompt gitignore iterm2 ng vscode colored-man-pages zsh_reload)
+plugins=(git osx rand-quote themes nvm npm npx git-prompt gitignore github git-flow-completion iterm2 ng vscode colored-man-pages zsh_reload docker docker-compose alias-finder colored-man-pages z zsh-interactive-cd)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,26 +97,13 @@ export LC_ALL=en_US.UTF-8
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-alias x="exit"
-alias sz="source ~/.zshrc"
-alias hc="history -c"
-alias got="git"
-Alias gut="git"
-alias cls=clear
-
 #custom additions
 
 DEFAULT_USER=$(whoami)
 export EDITOR='code'
+
 ZSH_ALIAS_FINDER_AUTOMATIC=true
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -132,3 +119,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+#add hub completions to path
+if (( ! ${fpath[(I)/usr/local/share/zsh/site-functions]} )); then
+  FPATH=/usr/local/share/zsh/site-functions:$FPATH
+fi
+
+#add aliases
+source ~/.aliases.zsh
