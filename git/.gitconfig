@@ -1,11 +1,8 @@
 [user]
-	name = Abdelrhman Safwat
 	email = abdelrhman.safwat@gmail.com
-[core]
-	excludesfile = /Users/abdelrhmansafwat/.gitignore_global
-	editor = /usr/bin/code
-[push]
-	default = current
+	name = sonofsafwat
+[pull]
+	rebase = false
 [alias]
 	unstage = reset HEAD --
 	uncommit = reset --soft HEAD~
@@ -41,7 +38,6 @@
 	    fi; \
 	}; f"
 	pull = pull --ff-only
-[alias]
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
@@ -120,7 +116,7 @@
 	sort = -committerdate
 
 [core]
-
+	editor = "code "
 	# Use custom `.gitignore` and `.gitattributes`.
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
