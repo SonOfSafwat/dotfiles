@@ -1,88 +1,157 @@
-
-tap 'homebrew/cask-versions'
-tap 'buo/cask-upgrade'
-tap 'Schniz/tap'
-tap 'nvie/tap'
-
-cask 'alfred'
-cask 'cakebrew'
-cask 'docker'
-cask 'doubletwist'
-cask 'font-hack-nerd-font'
-cask 'imageoptim'
-cask 'little-snitch'
-cask 'qlmarkdown'
-cask 'quicklook-csv'
-cask 'the-unarchiver'
-cask 'vlc'
-cask 'caret'
-cask 'dotnet-sdk'
-cask 'font-source-code-pro'
-cask 'iterm2'
-cask 'qlcolorcode'
-cask 'qlprettypatch'
-cask 'quicklook-json'
-cask 'visual-studio-code'
-cask 'webpquicklook'
-
-
-
-brew 'ack'
-brew 'cowsay'
-brew 'exercism'
-brew 'gdbm'
-brew 'git'
-brew 'git-secrets'
-brew 'highlight'
-brew 'libyaml'
-brew 'ncurses'
-brew 'openjdk'
-brew 'pcre2'
-brew 'pipenv'
-brew 'python@2'
-brew 'python'
-brew 'python@3.8'
-brew 'ruby'
-brew 'vault'
-brew 'xz'
-brew 'zsh'
-brew 'bash-completion'
-brew 'docker'
-brew 'fortune'
-brew 'gettext'
-brew 'git-flow'
-brew 'git-toolbelt'
-brew 'hub'
-brew 'lua'
-brew 'openssl@1.1'
-brew 'perl'
-brew 'rcm'
-brew 'sqlite'
-brew 'vault-cli'
-brew 'yarn'
-brew 'zsh-syntax-highlighting'
-brew 'coreutils'
-brew 'exa'
-brew 'fzf'
-brew 'gh'
-brew 'git-lfs'
-brew 'helm'
-brew 'icu4c'
-brew 'mackup'
-brew 'nvm'
-brew 'pcre'
-brew 'pkg-config'
-brew 'readline'
-brew 'tree'
-brew 'vim'
-brew 'z'
-
-
-# Install `wget` with IRI support.
-brew 'wget --with-iri'
-
-# Install GnuPG to enable PGP-signing commits.
-brew 'gnupg'
-
-
-mas 'Xcode', id: 497799835
+# Search tool like grep, but optimized for programmers
+brew "ack"
+# Programmable completion for Bash 3.2
+brew "bash-completion"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
+# Perl compatible regular expressions library with a new API
+brew "pcre2"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Apjanke's fork of the classic cowsay project
+brew "cowsay"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Command-line tool to interact with exercism.io
+brew "exercism"
+# Modern, maintained replacement for ls
+brew "eza"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Infamous electronic fortune-cookie generator
+brew "fortune"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU database manager
+brew "gdbm"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Git extension for versioning large files
+brew "git-lfs"
+# Prevents you from committing sensitive information to a git repo
+brew "git-secrets"
+# Library for command-line editing
+brew "readline"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# Kubernetes package manager
+brew "helm"
+# Command-line interface for SQLite
+brew "sqlite"
+# Self-improving AI agent that creates skills from experience
+brew "hermes-agent"
+# YAML Parser
+brew "libyaml"
+# Client library for huggingface.co hub
+brew "hf"
+# Powerful, lightweight programming language
+brew "lua"
+# Convert source code to formatted text with syntax highlighting
+brew "highlight"
+# Keep your Mac's application settings in sync
+brew "mackup"
+# Mac App Store command-line interface
+brew "mas"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
+# Deep clean and optimize your Mac
+brew "mole"
+# Text-based UI library
+brew "ncurses"
+# Port scanning utility for large networks
+brew "nmap"
+# AI coding agent, built for the terminal
+brew "opencode"
+# Development kit for the Java programming language
+brew "openjdk"
+# Highly capable, feature-rich programming language
+brew "perl"
+# Python dependency management tool
+brew "pipenv"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# RC file (dotfile) management
+brew "rcm"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Very fast implementation of tldr in Rust
+brew "tealdeer"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Subversion-like utility to work with Jackrabbit FileVault
+brew "vault-cli"
+# Vi 'workalike' with many additional features
+brew "vim"
+# JavaScript package manager
+brew "yarn"
+# Tracks most-used directories to make cd smarter
+brew "z"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# Collection of apps and services for photography, design, video, web, and UX
+cask "adobe-creative-cloud"
+# Application launcher and productivity software
+cask "alfred"
+cask "anki"
+cask "anydesk"
+cask "brave-browser"
+cask "calibre"
+# Brings the power of Copilot coding agent directly to your terminal
+cask "copilot-cli"
+cask "daisydisk"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Developer platform
+cask "dotnet-sdk"
+# Update maps and software, sync with Garmin Connect and register your device
+cask "garmin-express"
+# Open-source desktop AI agent
+cask "hermes-desktop"
+# Utility to hide menu bar items
+cask "hiddenbar"
+# Free and open-source media player
+cask "iina"
+# Tool to optimise images to a smaller size
+cask "imageoptim"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+cask "logi-options-plus"
+# Discover, download, and run local LLMs
+cask "lm-studio"
+# Clipboard manager
+cask "maccy"
+cask "ollama"
+# AI coding agent desktop client
+cask "opencode-desktop"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Music streaming service
+cask "spotify"
+# System monitor for the menu bar
+cask "stats"
+# Unpacks archive files
+cask "the-unarchiver"
+cask "transmission"
+# Open-source code editor
+cask "visual-studio-code"
+# Multimedia player
+cask "vlc"
+mas "AdGuard for Safari", id: 1440147259
+mas "Amphetamine", id: 937984704
+mas "Bitwarden", id: 1352778147
+mas "Irvue", id: 1039633667
+mas "Kindle", id: 302584613
