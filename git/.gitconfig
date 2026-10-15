@@ -1,6 +1,7 @@
 [user]
 	email = abdelrhman.safwat@gmail.com
-	name = sonofsafwat
+	name = abdelrhman safwat
+	usernam = sonofsafwat
 [pull]
 	rebase = false
 [alias]
@@ -166,7 +167,7 @@
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	gpgsign = false
 
 [diff]
 

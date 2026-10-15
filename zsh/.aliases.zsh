@@ -6,6 +6,7 @@
 # Example aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
+alias aliasconfig="code ~/.aliases.zsh"
 alias x="exit"
 alias sz="source ~/.zshrc"
 alias hc="history -c"
@@ -27,15 +28,14 @@ alias p="cd ~/projects"
 alias g="git"
 alias got="git"
 alias gut="git"
+alias commit="g cz"
 
 # List all files colorized in long format
-alias l="exa -lF --icons"
+alias l="eza -lF --icons"
 # List all files colorized in long format, excluding . and ..
-alias la="exa -lAF --icons"
-# List only directories
-alias lsd="exa -lF --icons"
+alias la="eza -lAF --icons"
 # Always use color output for `ls`
-alias ls="exa -lF --icons"
+alias ls="eza -laF --icons"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -49,8 +49,8 @@ alias sudo='sudo '
 # Get week number
 alias week='date +%V'
 
-# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
+# Get macOS Software Updates, and update Homebrew and mise-managed tools
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; mise up'
 
 # Google Chrome
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
@@ -61,7 +61,7 @@ alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Show active network interfaces
-alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+alias ifactive="ifconfig | pcre2grep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
@@ -103,11 +103,7 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
-# Merge PDF files, preserving hyperlinks
-# Usage: `mergepdf input{1,2,3}.pdf`
-alias mergepdf='gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=_merged.pdf'
+alias urlencode='python3 -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
 
 # Disable Spotlight
 alias spotoff="sudo mdutil -a -i off"
@@ -116,9 +112,6 @@ alias spoton="sudo mdutil -a -i on"
 
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 alias plistbuddy="/usr/libexec/PlistBuddy"
-
-# Airport CLI alias
-alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
@@ -147,8 +140,5 @@ alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# replace man with tdlr
-alias man='tldr '
-
-#create a git hook with the given name
-alias creategithook='touch ~/.git-templates/hooks/ '
+# Create an (executable) git hook template with the given name
+creategithook() { touch "$HOME/.git-templates/hooks/$1" && chmod +x "$HOME/.git-templates/hooks/$1"; }
